@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace InheritanceAndPolymorphism
+namespace InheritancePolymorphism
 {
-    class CoursesExamples
+    internal class CoursesExamples
     {
         static void Main()
         {

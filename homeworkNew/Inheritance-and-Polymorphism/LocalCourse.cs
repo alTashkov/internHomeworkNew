@@ -2,68 +2,63 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace InheritanceAndPolymorphism
+namespace InheritancePolymorphism
 {
-    public class LocalCourse
+    public class LocalCourse : Course
     {
-        public string Name { get; set; }
-        public string TeacherName { get; set; }
-        public IList<string> Students { get; set; }
-        public string Lab { get; set; }
+        private string lab;
 
-        public LocalCourse(string name)
-        {
-            this.Name = name;
-            this.TeacherName = null;
-            this.Students = new List<string>();
-            this.Lab = null;
+        public string Lab 
+        { 
+            get
+            {
+                return lab;
+            }
+            set
+            {
+                if (value == null)
+                {
+                    throw new ArgumentException("Invalid lab type value!");
+                }
+                lab = value;
+            }
         }
 
-        public LocalCourse(string courseName, string teacherName)
+        public LocalCourse(string name) : base(name) 
+        {
+            this.Name = name;
+            this.Students = new List<string>();
+        }
+
+        public LocalCourse(
+            string courseName, 
+            string teacherName) : base(courseName, teacherName)
         {
             this.Name = courseName;
             this.TeacherName = teacherName;
             this.Students = new List<string>();
-            this.Lab = null;
         }
 
-        public LocalCourse(string courseName, string teacherName, IList<string> students)
+        public LocalCourse(
+            string courseName, 
+            string teacherName, 
+            IList<string> students) : base(courseName, teacherName, students)
         {
             this.Name = courseName;
             this.TeacherName = teacherName;
             this.Students = students;
-            this.Lab = null;
-        }
-
-        private string GetStudentsAsString()
-        {
-            if (this.Students == null || this.Students.Count == 0)
-            {
-                return "{ }";
-            }
-            else
-            {
-                return "{ " + string.Join(", ", this.Students) + " }";
-            }
         }
 
         public override string ToString()
         {
-            StringBuilder result = new StringBuilder();
-            result.Append("LocalCourse { Name = ");
-            result.Append(this.Name);
-            if (this.TeacherName != null)
-            {
-                result.Append("; Teacher = ");
-                result.Append(this.TeacherName);
-            }
-            result.Append("; Students = ");
-            result.Append(this.GetStudentsAsString());
+            StringBuilder result = new StringBuilder(base.ToString());
+            
             if (this.Lab != null)
             {
                 result.Append("; Lab = ");
                 result.Append(this.Lab);
             }
+
             result.Append(" }");
             return result.ToString();
         }
