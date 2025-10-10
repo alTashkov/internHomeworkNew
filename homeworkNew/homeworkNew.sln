@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36401.2 d17.14
+VisualStudioVersion = 17.14.36401.2
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "08", "08", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
@@ -16,6 +16,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CohesionCoupling", "CohesionCoupling\CohesionCoupling.csproj", "{20910D83-B8FE-4CDF-A6DC-21C0651A306E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InheritanceAndPolymorphism", "Inheritance-and-Polymorphism\InheritanceAndPolymorphism.csproj", "{4AECEF94-FB33-4BCF-82B5-C08F74BD7495}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "07", "07", "{ED88753C-8C24-4286-8A29-E8C5976164C3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Methods", "Methods", "{05F62A92-07CD-4CA1-917B-A27A650C8F08}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Methods", "Methods\Methods.csproj", "{0E3DD298-B796-4978-9386-4E3201FD790E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +41,10 @@ Global
 		{4AECEF94-FB33-4BCF-82B5-C08F74BD7495}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AECEF94-FB33-4BCF-82B5-C08F74BD7495}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AECEF94-FB33-4BCF-82B5-C08F74BD7495}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E3DD298-B796-4978-9386-4E3201FD790E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E3DD298-B796-4978-9386-4E3201FD790E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E3DD298-B796-4978-9386-4E3201FD790E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E3DD298-B796-4978-9386-4E3201FD790E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +56,8 @@ Global
 		{CD1A926B-A7CB-4B82-95E8-DEE9BF214953} = {7F3E4E3B-90C1-4DB9-98DD-DCCAE288F711}
 		{20910D83-B8FE-4CDF-A6DC-21C0651A306E} = {E230D345-424F-422E-BE13-3483F0C1BE86}
 		{4AECEF94-FB33-4BCF-82B5-C08F74BD7495} = {07217312-AE6D-41E9-B6EA-20859E47EAE6}
+		{05F62A92-07CD-4CA1-917B-A27A650C8F08} = {ED88753C-8C24-4286-8A29-E8C5976164C3}
+		{0E3DD298-B796-4978-9386-4E3201FD790E} = {05F62A92-07CD-4CA1-917B-A27A650C8F08}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {88B45A37-A9B1-42F8-9CEF-8BA2E6561CB7}
