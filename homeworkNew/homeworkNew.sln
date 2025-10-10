@@ -23,7 +23,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "07", "07", "{D51A526C-6101-
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Methods", "Methods", "{8EF4F22F-FE7C-4862-8813-AA206244D313}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex7.01", "Ex7.01\Ex7.01.csproj", "{71968740-DEC4-4FC3-BC48-4AF460C6300D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Methods", "Ex7.01\Methods.csproj", "{71968740-DEC4-4FC3-BC48-4AF460C6300D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
