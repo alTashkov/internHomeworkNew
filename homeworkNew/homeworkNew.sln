@@ -57,7 +57,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "11", "11", "{9F815416-6772-
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Refactoring", "Refactoring", "{8B18E6D9-2B87-48F0-BF1D-DA0CF48AB39E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Matrica", "Matrica\Matrica.csproj", "{A38FE03D-6346-4808-961B-F3BCC281B5B4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refactoring", "Matrica\Refactoring.csproj", "{A38FE03D-6346-4808-961B-F3BCC281B5B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
