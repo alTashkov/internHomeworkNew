@@ -18,6 +18,7 @@ namespace Assertions
                 T oldValueAtIndex = arr[index];
                 T oldValueAtMinElementIndex = arr[minElementIndex];
                 Swap(ref arr[index], ref arr[minElementIndex]);
+
                 Debug.Assert(arr[minElementIndex].CompareTo(oldValueAtIndex) == 0 &&
                     arr[index].CompareTo(oldValueAtMinElementIndex) == 0, 
                         "Swapping elements unsuccessful, unable to sort!");
@@ -40,13 +41,13 @@ namespace Assertions
                     minElementIndex = i;
                 }
             }
+
             return minElementIndex;
         }
 
         private static void Swap<T>(ref T x, ref T y)
         {
-            Debug.Assert(x  != null && y != null, 
-                "One or both elements don't exist!");
+            Debug.Assert(x  != null && y != null, "One or both elements don't exist!");
             T oldX = x;
             x = y;
             y = oldX;
@@ -61,8 +62,7 @@ namespace Assertions
         private static int BinarySearch<T>(T[] arr, T value, int startIndex, int endIndex)
             where T : IComparable<T>
         {
-            Debug.Assert(arr != null && value != null, "Array does not exist or " +
-                "value is invalid!");
+            Debug.Assert(arr != null && value != null, "Array does not exist or value is invalid!");
             Debug.Assert(startIndex >= 0, "Start index must be greater than 0.");
             Debug.Assert(endIndex >= 0, "End index must be greater than 0.");
 
