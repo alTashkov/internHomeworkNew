@@ -8,4 +8,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CodeTuning-TASK2\CodeTuning-TASK2.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -2,49 +2,72 @@
 
 namespace Matrica
 {
-    class WalkInMatrica
+    internal class WalkInMatrix
     {
-        static void change(ref int dx, ref int dy)
+        internal static readonly int[] DirectionsX = { 1, 1, 1, 0, -1, -1, -1, 0 };
+        internal static readonly int[] DirectionsY = { 1, 0, -1, -1, -1, 0, 1, 1 };
+
+        internal static void ChangeDirection(ref int dX, ref int dY)
         {
-            int[] dirX = { 1, 1, 1, 0, -1, -1, -1, 0 };
+            int idx = 0;
 
-
-            int[] dirY = { 1, 0, -1, -1, -1, 0, 1, 1 };
-            int cd = 0;
-            for (int count = 0; count < 8; count++)
-                if (dirX[count] == dx && dirY[count] == dy) { cd = count; break; }
-            if (cd == 7) { dx = dirX[0]; dy = dirY[0]; return; }
-            dx = dirX[cd + 1];
-
-
-            dy = dirY[cd + 1];
-        }
-        static bool proverka(int[,] arr, int x, int y)
-        {
-            int[] dirX = { 1, 1, 1, 0, -1, -1, -1, 0 };
-            int[] dirY = { 1, 0, -1, -1, -1, 0, 1, 1 };
-            for (int i = 0; i < 8; i++)
+            for (int count = 0; count < DirectionsX.Length; count++)
             {
-                if (x + dirX[i] >= arr.GetLength(0) || x + dirX[i] < 0) dirX[i] = 0;
-
-
-                if (y + dirY[i] >= arr.GetLength(0) || y + dirY[i] < 0) dirY[i] = 0;
+                if (DirectionsX[count] == dX && DirectionsY[count] == dY)
+                {
+                    idx = count;
+                    break;
+                }
             }
-            for (int i = 0; i < 8; i++)
-                if (arr[x + dirX[i], y + dirY[i]] == 0) return true;
+
+            if (idx == 7)
+            {
+                dX = DirectionsX[0];
+                dY = DirectionsY[0];
+
+                return;
+            }
+
+            dX = DirectionsX[idx + 1];
+            dY = DirectionsY[idx + 1];
+        }
+
+        internal static bool HasAvailableMove(int[,] arr, int xCoordinate, int yCoordinate)
+        {
+            for (int i = 0; i < DirectionsX.Length; i++)
+            {
+                int newX = xCoordinate + DirectionsX[i];
+                int newY = yCoordinate + DirectionsY[i];
+
+                if (newX >= 0 && newX < arr.GetLength(0) &&
+                    newY >= 0 && newY < arr.GetLength(1) &&
+                        arr[newX, newY] == 0)
+                {
+                    return true;
+                }
+            }
 
             return false;
         }
 
-        static void find_cell(int[,] arr, out int x, out int y)
+        internal static void FindNextAvailableCell(int[,] array, out int xCoordinate, out int yCoordinate)
         {
-            x = 0;
-            y = 0;
-            for (int i = 0; i < arr.GetLength(0); i++)
+            xCoordinate = 0;
+            yCoordinate = 0;
 
-                for (int j = 0; j < arr.GetLength(0); j++)
-                    if (arr[i, j] == 0) { x = i; y = j; return; }
+            for (int matrixX = 0; matrixX < array.GetLength(0); matrixX++)
+            {
+                for (int matrixY = 0; matrixY < array.GetLength(1); matrixY++)
+                {
+                    if (array[matrixX, matrixY] == 0)
+                    {
+                        xCoordinate = matrixX;
+                        yCoordinate = matrixY;
 
+                        return;
+                    }
+                }
+            }
         }
 
         static void Main(string[] args)
@@ -54,48 +77,56 @@ namespace Matrica
             //int n = 0;
             //while ( !int.TryParse( input, out n ) || n < 0 || n > 100 )
             //{
-            //    Console.WriteLine( "You haven't entered a correct positive number" );
             //    input = Console.ReadLine(  );
             //}
-            int n = 3;
-            int[,] matrica = new int[n, n];
-            int step = n, k = 1, i = 0, j = 0, dx = 1, dy = 1;
+            int numberRowsCols = 6;
+            int[,] matrix = new int[numberRowsCols, numberRowsCols];
+
+            int currentNumber = 1;
+            int currentCellX = 0;
+            int currentCellY = 0;
+            int directionX = 1;
+            int directionY = 1;
+
             while (true)
-            { //malko e kofti tova uslovie, no break-a raboti 100% : )
-                matrica[i, j] = k;
-
-                if (!proverka(matrica, i, j)) { break; } // prekusvame ako sme se zadunili
-                if (i + dx >= n || i + dx < 0 || j + dy >= n || j + dy < 0 || matrica[i + dx, j + dy] != 0)
-
-
-                    while ((i + dx >= n || i + dx < 0 || j + dy >= n || j + dy < 0 || matrica[i + dx, j + dy] != 0)) { change(ref dx, ref dy); }
-                i += dx; j += dy; k++;
-            }
-            for (int p = 0; p < n; p++)
             {
-                for (int q = 0; q < n; q++) Console.Write("{0,3}", matrica[p, q]);
-                Console.WriteLine();
-            }
-            find_cell(matrica, out i, out j);
-            if (i != 0 && j != 0)
-            { // taka go napravih, zashtoto funkciqta ne mi davashe da ne si definiram out parametrite
-                dx = 1; dy = 1;
+                matrix[currentCellX, currentCellY] = currentNumber;
 
+                if (!HasAvailableMove(matrix, currentCellX, currentCellY))
+                {
+                    FindNextAvailableCell(matrix, out currentCellX, out currentCellY);
+                    if (matrix[currentCellX, currentCellY] != 0)
+                        break;
 
-                while (true)
-                { //malko e kofti tova uslovie, no break-a raboti 100% : )
-                    matrica[i, j] = k;
-                    if (!proverka(matrica, i, j)) { break; }// prekusvame ako sme se zadunili
-                    if (i + dx >= n || i + dx < 0 || j + dy >= n || j + dy < 0 || matrica[i + dx, j + dy] != 0)
-
-
-                        while ((i + dx >= n || i + dx < 0 || j + dy >= n || j + dy < 0 || matrica[i + dx, j + dy] != 0)) change(ref dx, ref dy);
-                    i += dx; j += dy; k++;
+                    directionX = 1;
+                    directionY = 1;
+                    currentNumber++;
+                    continue;
                 }
+
+                int nextX = currentCellX + directionX;
+                int nextY = currentCellY + directionY;
+
+                while (nextX < 0 || nextX >= numberRowsCols ||
+                       nextY < 0 || nextY >= numberRowsCols ||
+                       matrix[nextX, nextY] != 0)
+                {
+                    ChangeDirection(ref directionX, ref directionY);
+                    nextX = currentCellX + directionX;
+                    nextY = currentCellY + directionY;
+                }
+
+                currentCellX = nextX;
+                currentCellY = nextY;
+                currentNumber++;
             }
-            for (int pp = 0; pp < n; pp++)
+
+            for (int p = 0; p < numberRowsCols; p++)
             {
-                for (int qq = 0; qq < n; qq++) Console.Write("{0,3}", matrica[pp, qq]);
+                for (int q = 0; q < numberRowsCols; q++)
+                {
+                    Console.Write("{0,4}", matrix[p, q]);
+                }
 
                 Console.WriteLine();
             }
