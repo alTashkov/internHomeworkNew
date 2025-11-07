@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Methods
+﻿namespace Methods
 {
     internal class Methods
     {
@@ -81,20 +79,16 @@ namespace Methods
         }
 
 
-        static double CalculateDistance(
-            double x1, double y1, double x2, double y2)
+        static double CalculateDistance(double x1, double y1, double x2, double y2)
         {
-            double distance = Math.Sqrt(
-                (x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+            double distance = Math.Sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
             return distance;
         }
 
         static void Main()
         {
             Console.WriteLine(CalculateTriangleArea(3, 4, 5));
-
             Console.WriteLine(NumberToText(5));
-
             Console.WriteLine(FindMaxNumberInArray(5, -1, 3, 2, 14, 2, 3));
 
             PrintAsNumber(1.3, "f");
@@ -109,7 +103,7 @@ namespace Methods
             Student stella = new Student() { FirstName = "Stella", LastName = "Markova" };
             stella.OtherInfo = "From Vidin, gamer, high results, born at 03.11.1993";
 
-            Console.WriteLine("{0} older than {1} -> {2}",
+            Console.WriteLine("{0} older than {1} -> {2}", 
                 peter.FirstName, stella.FirstName, peter.IsOlderThan(stella));
         }
     }

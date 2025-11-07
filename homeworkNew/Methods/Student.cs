@@ -3,9 +3,7 @@
     internal class Student
     {
         private string? firstName;
-
         private string? lastName;
-
         private string? otherInfo;
 
         public string? FirstName 
@@ -61,7 +59,6 @@
                 throw new ArgumentException(
                     "Not enough information about the students!\nFill in other info!");
             }
-            
         }
     }
 }
