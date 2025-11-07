@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Text;
 
 namespace InheritancePolymorphism
 {
     public abstract class Course
     {
         private string name;
-
         private string teacherName;
-
         private IList<string> students;
 
         public string Name 
@@ -74,8 +70,7 @@ namespace InheritancePolymorphism
             this.teacherName = teacherName;
         }
 
-        public Course(
-            string name, string teacherName, IList<string> students)
+        public Course(string name, string teacherName, IList<string> students)
         {
             this.Name = name;
             this.TeacherName = teacherName;
@@ -90,8 +85,7 @@ namespace InheritancePolymorphism
             }
             else
             {
-                return "{ " + 
-                    string.Join(", ", this.Students) + " }";
+                return "{ " + string.Join(", ", this.Students) + " }";
             }
         }
 

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Text;
 
 namespace InheritancePolymorphism
 {
@@ -30,19 +28,15 @@ namespace InheritancePolymorphism
             this.Students = new List<string>();
         }
 
-        public LocalCourse(
-            string courseName, 
-            string teacherName) : base(courseName, teacherName)
+        public LocalCourse(string courseName, string teacherName) : base(courseName, teacherName)
         {
             this.Name = courseName;
             this.TeacherName = teacherName;
             this.Students = new List<string>();
         }
 
-        public LocalCourse(
-            string courseName, 
-            string teacherName, 
-            IList<string> students) : base(courseName, teacherName, students)
+        public LocalCourse(string courseName, string teacherName, IList<string> students) : 
+            base(courseName, teacherName, students)
         {
             this.Name = courseName;
             this.TeacherName = teacherName;

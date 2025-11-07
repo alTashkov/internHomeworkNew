@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace InheritancePolymorphism
+﻿namespace InheritancePolymorphism
 {
     internal class CoursesExamples
     {
@@ -21,9 +18,9 @@ namespace InheritancePolymorphism
             localCourse.Students.Add("Todor");
             Console.WriteLine(localCourse);
 
-            OffsiteCourse offsiteCourse = new OffsiteCourse(
-                "PHP and WordPress Development", "Mario Peshev", 
+            OffsiteCourse offsiteCourse = new OffsiteCourse("PHP and WordPress Development", "Mario Peshev", 
                 new List<string>() { "Thomas", "Ani", "Steve" });
+
             Console.WriteLine(offsiteCourse);
         }
     }

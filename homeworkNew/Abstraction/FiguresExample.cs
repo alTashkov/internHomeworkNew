@@ -8,7 +8,7 @@ namespace Abstraction
         {
             Circle circle = new Circle(5);
             Console.WriteLine("I am a circle. " +
-                "My perimeter is {0:f2}. My surface is {1:f2}.",
+                "My perimeter is {0:f2}. My surface is {1:f2}.", 
                 circle.CalculatePerimeter(), circle.CalculateSurface());
 
             Rectangle rectangle = new Rectangle(2, 3);
